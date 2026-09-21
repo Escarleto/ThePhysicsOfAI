@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
       propertyPath: m_Name
-      value: Shell 1
+      value: AIShell
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -58,18 +58,15 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
       insertIndex: 1
-      addedObject: {fileID: 743440027420556537}
+      addedObject: {fileID: -1652565057817919094}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
       insertIndex: 2
       addedObject: {fileID: -6793176074700075806}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
       insertIndex: 3
-      addedObject: {fileID: -3687308814782164702}
-    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
-      insertIndex: 4
       addedObject: {fileID: 5292382352337201137}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
-      insertIndex: 5
+      insertIndex: 4
       addedObject: {fileID: -3733460586648767391}
   m_SourcePrefab: {fileID: 100100000, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
 --- !u!1 &3273742366662599288 stripped
@@ -77,19 +74,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 94909025794e74478ba0a01311fdeae8, type: 3}
   m_PrefabInstance: {fileID: 6795727603637255025}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &743440027420556537
+--- !u!114 &-1652565057817919094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3273742366662599288}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad8ae3252625b77ca28400b3bb9ad00, type: 3}
+  m_Script: {fileID: 11500000, guid: 143e867c0106f4c71bc8f3e522463fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  explosion: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
 --- !u!114 &-6793176074700075806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,19 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aacaa7a7568b94e06b8e07095cfb1978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3687308814782164702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3273742366662599288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a460c8290e014c3caa73ba461ac9a10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
 --- !u!136 &5292382352337201137
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -160,7 +144,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

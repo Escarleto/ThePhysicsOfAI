@@ -143,12 +143,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59484305}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.14086261, y: -0, z: 0.00000047683704, w: 0.99002916}
-  m_LocalPosition: {x: 0, y: 1.678, z: 1.306}
+  m_LocalRotation: {x: -0.14086263, y: -0, z: 0.00000046938652, w: 0.99002916}
+  m_LocalPosition: {x: -0.00001043575, y: 0.59835875, z: 1.3313217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1354003426666338540}
+  m_Father: {fileID: 1197611257}
   m_LocalEulerAnglesHint: {x: -16.196, y: 0, z: 0}
 --- !u!1 &620903246 stripped
 GameObject:
@@ -171,7 +171,7 @@ MonoBehaviour:
   rotationSpeed: 100
   transGun: {fileID: 1706833056}
   gun: {fileID: 664190131}
-  shell: {fileID: 3273742366662599288, guid: 2d1d19e9721462b93a4064f56656edc4, type: 3}
+  shell: {fileID: 3273742366662599288, guid: a129df0e7617e962c9490680b49c2c38, type: 3}
 --- !u!65 &620903249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -617,6 +617,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!4 &1197611257 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6880403096463785013, guid: e57a33c6f3b0e4cb2a2af014c265b239, type: 3}
+  m_PrefabInstance: {fileID: 1354003426666338538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1706833056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5714334409709048953, guid: f8df63ccbdfa54d54833de3ea7e2ce5a, type: 3}
@@ -685,7 +690,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2887154942990734001, guid: e57a33c6f3b0e4cb2a2af014c265b239, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6880403096463785013, guid: e57a33c6f3b0e4cb2a2af014c265b239, type: 3}
       insertIndex: -1
       addedObject: {fileID: 59484306}
     m_AddedComponents:
@@ -704,11 +709,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2182668876329722018, guid: e57a33c6f3b0e4cb2a2af014c265b239, type: 3}
   m_PrefabInstance: {fileID: 1354003426666338538}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1354003426666338540 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2887154942990734001, guid: e57a33c6f3b0e4cb2a2af014c265b239, type: 3}
-  m_PrefabInstance: {fileID: 1354003426666338538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1354003426666338541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,8 +721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8282c0d5ea38cc9f4b78407196d201ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shell: {fileID: 3273742366662599288, guid: 2d1d19e9721462b93a4064f56656edc4, type: 3}
+  shell: {fileID: 3273742366662599288, guid: a129df0e7617e962c9490680b49c2c38, type: 3}
   turret: {fileID: 59484305}
+  turretBase: {fileID: 1197611257}
   enemy: {fileID: 620903246}
 --- !u!65 &1354003426666338542
 BoxCollider:

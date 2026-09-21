@@ -4,22 +4,64 @@ public class FireShell : MonoBehaviour
 {
     [SerializeField] private GameObject shell;
     [SerializeField] private GameObject turret;
+    [SerializeField] private Transform turretBase;
     [SerializeField] private GameObject enemy;
+    private float speed = 15f;
+    private float rotSpeed = 5f;
+    private float moveSpeed = 1f;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {   
-            Vector3 aimAt = CalculateTrajectory();
-            if (aimAt != Vector3.zero)
-                transform.forward = aimAt;
+        Vector3 direction = (enemy.transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotSpeed * Time.deltaTime);
+        float? angle = RotateTurret();
+        if (angle != null)
             Fire();
-        }
+        else
+            transform.Translate(0, 0, moveSpeed * Time.deltaTime);
+
     }
 
     private void Fire()
     {
-        Instantiate(shell, turret.transform.position, turret.transform.rotation);
+        GameObject newShell = Instantiate(shell, turret.transform.position, turret.transform.rotation);
+        newShell.GetComponent<Rigidbody>().linearVelocity = speed * turretBase.forward;
+    }
+
+    private float? RotateTurret()
+    {
+        float? angle = CalculateAngle(false);
+        if (angle != null)
+        {
+            turretBase.localEulerAngles = new Vector3(360f - (float)angle, 0, 0);
+        }
+        return angle;
+    }
+
+    private float? CalculateAngle(bool low)
+    {
+        Vector3 targetDir = enemy.transform.position - transform.position;
+        float y = targetDir.y;
+        targetDir.y = 0f;
+        float x = targetDir.magnitude - 1;
+        float gravity = 9.8f;
+        float sSqr = speed * speed;
+        float underSqrRoot = (sSqr * sSqr) - gravity * (gravity * x * x + 2 * y * sSqr);
+
+        if (underSqrRoot >= 0f)
+        {
+            float root = Mathf.Sqrt(underSqrRoot);
+            float highAngle = sSqr + root;
+            float lowAngle = sSqr - root;
+
+            if (low)
+                return Mathf.Atan2(lowAngle, gravity * x) * Mathf.Rad2Deg;
+            else
+                return Mathf.Atan2(highAngle, gravity * x) * Mathf.Rad2Deg;
+        }
+        else 
+            return null;
     }
 
     private Vector3 CalculateTrajectory()
